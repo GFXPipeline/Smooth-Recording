@@ -11,7 +11,7 @@ jobs:
         run: |
           git checkout --orphan TEMP_BRANCH
 
-      - name: Add all the files:
+      - name: Add all the files
         run: |
           git add -A
 
