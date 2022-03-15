@@ -7,7 +7,7 @@ jobs:
       - name: Checkout main brain
         uses: actions/checkout@v2
         
-      - name: Check out to a temporary branch:
+      - name: Check out to a temporary branch
         run: |
           git checkout --orphan TEMP_BRANCH
 
@@ -25,11 +25,11 @@ jobs:
           git branch -D master
 
 
-      - name: Rename the temporary branch to master:
+      - name: Rename the temporary branch to master
         run: |
           git branch -m master
 
-      - name: Finally, force update to our repository:
+      - name: Finally, force update to our repository
         run: |
           git push -f origin master
 
