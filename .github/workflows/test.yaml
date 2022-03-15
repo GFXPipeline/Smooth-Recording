@@ -28,7 +28,7 @@ jobs:
 
       - name: Rename the temporary branch to master
         run: |
-          git branch -m master
+          git push origin --delete test
 
       - name: Finally, force update to our repository
         run: |
