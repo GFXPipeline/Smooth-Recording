@@ -1,0 +1,23 @@
+name: Clean Commits
+on: push
+jobs:
+  CleanCommits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main brain
+        uses: actions/checkout@v2
+        
+      - name: Removing the history from GIT
+        run: |
+          rm -rf .git
+
+      - name: Recreate the repos from the current content only
+        run: |
+          git init
+          git add .
+          git commit -m "Initial commit"
+
+      - name: Pushing to Github Repo
+        run: |
+             git remote add origin git@github.com:GFXPipeline/Smooth-Recording.git.git
+             git push -u --force origin master
