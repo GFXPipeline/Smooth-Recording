@@ -1,7 +1,7 @@
 name: Clean Commits
 on: push
 jobs:
-  date:
+  CleanCommits:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main brain
@@ -17,7 +17,8 @@ jobs:
 
       - name: Commit Changes
         run: |
-          git commit -am "Initial commit"
+            git config --global user.email "cleancommit@github.com"
+            git config --global user.name "CleanCommit Bot"
 
 
       - name: Delete Old Branch
