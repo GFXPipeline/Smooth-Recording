@@ -10,3 +10,6 @@ If not familar with how to install a bookmarklet view this!
 Then proceed this link to find the bookmarklet! 
 <a href="https://gfxpipeline.github.io/Smooth-Recording/">Go here</a>
 
+### Notes
+
+https://caiorss.github.io/bookmarklet-maker/ - was used to produce the final bookmarklet!
