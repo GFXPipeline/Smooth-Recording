@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WFWorkflowActions</key>
+	<array>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.runjavascriptonwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFJavaScript</key>
+				<string>;(function() {
+    var pageHeight = 0;
+
+    function findHighestNode(nodesList) {
+        for (var i = nodesList.length - 1; i &gt;= 0; i--) {
+            if (nodesList[i].scrollHeight &amp;&amp; nodesList[i].clientHeight) {
+                var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight);
+                pageHeight = Math.max(elHeight, pageHeight);
+            }
+            if (nodesList[i].childNodes.length) findHighestNode(nodesList[i].childNodes);
+        }
+    }
+
+    findHighestNode(document.documentElement.childNodes);
+
+    // The entire page height is found
+    alert('Page height in pixels is ' + pageHeight + " Note: too STOP scrolling past the bottom of page - decrease this value in the next step!");
+})();                                                       javascript:(function(n,t){t['true']=n;var i=function(n,t,i){var r=n.style;r.webkitTransition=r.transition=i+'s';r.webkitTransitionTimingFunction=r.TransitionTimingFunction='ease-in-out';r.webkitTransform=r.Transform='translate3d(0, '+-t+'px, 0)'};var r=function(){var n=[].slice.call(arguments);var t=n.shift(),i=n.shift(),r=n;setTimeout(function(){i.apply(null,r)},t*1e3)};var e=function(n,t,i,e){r(t,o,i,e)};var a=document.getElementsByTagName('body')[0];var o=i.bind(null,a);var s=e.bind(null,a);var l=function(n){var t='Enter delay (in seconds), distance to scroll (in pixels) and the scroll duration (in seconds).\n\nRun the script a second time with options 0 0 0 to reset the page.\n\nExample:\n\n1 800 5';if(n){t=n+'\n\n'+t}var i=prompt(t);if(i===null){return}if(/\d{1,} \d{1,} \d{1,}/.test(i)){return i.split(' ')}return l('Woops. Input invalid: '+i)};var u=function(){var n=l();if(n){s.apply(null,n)}};u()})({},function(){return this}());
+</string>
+			</dict>
+		</dict>
+	</array>
+	<key>WFWorkflowClientRelease</key>
+	<string>2.0</string>
+	<key>WFWorkflowClientVersion</key>
+	<string>700</string>
+	<key>WFWorkflowIcon</key>
+	<dict>
+		<key>WFWorkflowIconGlyphNumber</key>
+		<integer>59801</integer>
+		<key>WFWorkflowIconImageData</key>
+		<data>
+		</data>
+		<key>WFWorkflowIconStartColor</key>
+		<integer>4292093695</integer>
+	</dict>
+	<key>WFWorkflowImportQuestions</key>
+	<array/>
+	<key>WFWorkflowInputContentItemClasses</key>
+	<array>
+		<string>WFWorkflowInputContentItemClasses</string>
+	</array>
+	<key>WFWorkflowTypes</key>
+	<array>
+		<string>NCWidget</string>
+		<string>WatchKit</string>
+		<string>ActionExtension</string>
+	</array>
+</dict>
+</plist>
