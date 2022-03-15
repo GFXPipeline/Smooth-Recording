@@ -1,0 +1,353 @@
+@import "compass/css3";
+
+/* ---------------------------------------- *\
+
+    VARIABLES
+
+\* ---------------------------------------- */
+
+$red: #a32c28;
+
+$white: #fff;
+$lightest-grey: #eee;
+$light-grey: #ddd;
+$grey: #ccc;
+$dark-grey: #222;
+$darkest-grey: #141414;
+$black: #000;
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    WEB FONTS
+
+\* ---------------------------------------- */
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    GENERIC ELEMENTS
+
+\* ---------------------------------------- */
+
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  margin: 0;
+  font: #{100%}/#{1.5} "Source Sans Pro", sans-serif;
+  color: $dark-grey;
+  background-color: $lightest-grey;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+a {
+  color: $red;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  @include transition(color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out);
+
+  &:hover {
+    color: lighten($red, 10%);
+  }
+
+  &:active {
+    color: darken($red, 10%);
+  }
+}
+
+small,
+.small {
+  font-size: 0.75em;
+  line-height: 2;
+}
+
+.wrap {
+  max-width: 35em;
+  margin: 0 auto;
+}
+
+.separator {
+  padding: 0 0.5em;
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    TOUCH SPECIFIC STYLES
+
+\* ---------------------------------------- */
+
+.show-touch {
+  font: 0/0 a;
+}
+
+.touch {
+  .hide-touch {
+    font: 0/0 a;
+  }
+  
+  .show-touch {
+    font: inherit;
+  }
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    HEADER
+
+\* ---------------------------------------- */
+
+header {
+  padding: 3em 1.5em 1.5em;
+  text-align: center;
+}
+
+.site-heading {
+  margin-top: 0;
+}
+
+.site-heading {
+  margin-bottom: 0.6em;
+  font-size: 2.5em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    TOOLBAR
+
+\* ---------------------------------------- */
+
+.toolbar {
+  position: relative;
+  min-height: 2.5em;
+  border-top: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.search {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0;
+  font: inherit;
+  border: 0;
+  @include appearance(none);
+  @include transition(box-shadow 0.25s ease-in-out);
+  outline: none;
+  
+  &:focus {
+    box-shadow: 0 1px 2px rgba($darkest-grey, 0.15) inset;
+  }
+}
+
+.search.fixed {
+  position: fixed;
+  box-shadow: 0 2px 4px rgba($darkest-grey, 0.35);
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    NETWORKS
+
+\* ---------------------------------------- */
+
+.networks {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.network {
+  padding: 3em;
+  @include background-image(radial-gradient(50% 50%, circle, rgba($white, 0.25), rgba($white, 0)));
+}
+
+.network__name {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba($darkest-grey, 0.25);
+  color: $white;
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    BOOKMARKLETS
+
+\* ---------------------------------------- */
+
+.bookmarklets {
+  padding-left: 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+.bookmarklet {
+  margin: 1em 0;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (min-width: 37.5em) {
+    max-width: 18em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  a {
+    position: relative;
+    display: block;
+    padding: 0.5em 1.5em;
+    background-color: $light-grey;
+    @include background-image(linear-gradient(top, rgba($lightest-grey, 0.5), rgba($grey, 0.5)));
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba($darkest-grey, 0.25);
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    @include transition(background-color 0.25s ease-in-out);
+    
+    &:hover {
+      background-color: $lightest-grey;
+    }
+    
+    &:active {
+      @include transition(none);
+      background-color: $grey;
+    }
+  }
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    INSTRUCTIONS
+
+\* ---------------------------------------- */
+
+.howto {
+  padding: 3em 1.5em 1.5em;
+}
+
+
+
+
+
+/* ---------------------------------------- *\
+
+    BRAND COLOURS
+
+\* ---------------------------------------- */
+
+$brand-colors: pinboard       #0000e6,
+               pinterest      #c8232c,
+               googlereader   #396bc6,
+               instapaper     #000,
+               tumblr         #34526f,
+               twitter        #00a0d1,
+               pocket         #ee4056,
+               facebook       #3b5998,
+               readability    #9c0000,
+               storify        #009cce,
+               quotefm        #66ceff,
+               evernote       #5ba525,
+               forrst         #5b9a68,
+               delicious      #205cc0,
+               setlistfm      #a5c64a,
+               linkedin       #0e76a8,
+               stumbleupon    #f74425,
+               digg           #000008,
+               hackernews     #ff6600,
+               github         #4183c4,
+               blogger        #ffa552,
+               foursquare     #25a0ca,
+               gimmebar       #f70078,
+               googleplus     #db4a39,
+               zootool        #5e8b1d,
+               buffer         #529c31,
+               appnet         #737373,
+               codepen        #383839,
+               subtlepatterns #4abd63,
+               weheartit      #ff8cad,
+               quora          #ad2100,
+               huffduffer     #336699,
+               telly          #638c9c,
+               boxee          #84b542,
+               rtm            #005abd,
+               bitly          #ef6321,
+               pulse          #63ceff,
+               amazon         #e47911,
+               reddit         #ff4200,
+               ffffound       #ff009c,
+               icebergs       #00c6f9,
+               gist           #ffa54a,
+               html5          #e74a21;
+
+@each $brand in $brand-colors {
+  .#{nth($brand, 1)} {
+    background-color: #{nth($brand, 2)};
+  }
+}
