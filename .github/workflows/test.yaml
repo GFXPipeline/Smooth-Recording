@@ -4,7 +4,6 @@ jobs:
   date:
     runs-on: ubuntu-latest
     steps:
-
       - name: Check out to a temporary branch:
         run: |
           git checkout --orphan TEMP_BRANCH
