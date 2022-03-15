@@ -1,17 +1,34 @@
-# Check out to a temporary branch:
-git checkout --orphan TEMP_BRANCH
+name: Commit date to master
+on: push
+jobs:
+  date:
+    runs-on: ubuntu-latest
+    steps:
 
-# Add all the files:
-git add -A
+      - name: Check out to a temporary branch:
+        run: |
+          git checkout --orphan TEMP_BRANCH
 
-# Commit the changes:
-git commit -am "Initial commit"
+      - name: Add all the files:
+        run: |
+          git add -A
 
-# Delete the old branch:
-git branch -D master
+      - name: Commit Changes
+        run: |
+          git commit -am "Initial commit"
 
-# Rename the temporary branch to master:
-git branch -m master
 
-# Finally, force update to our repository:
-git push -f origin master
+      - name: Delete Old Branch
+        run: |
+          git branch -D master
+
+
+      - name: Rename the temporary branch to master:
+        run: |
+          git branch -m master
+
+      - name: Finally, force update to our repository:
+        run: |
+          git push -f origin master
+
+
