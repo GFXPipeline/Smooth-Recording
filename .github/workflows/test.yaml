@@ -23,7 +23,7 @@ jobs:
 
       - name: Delete Old Branch
         run: |
-          git branch -D master
+          git push origin --delete master
 
 
       - name: Rename the temporary branch to master
