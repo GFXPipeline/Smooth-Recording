@@ -339,7 +339,6 @@ $brand-colors: pinboard       #0000e6,
 
 .container {
   flex-direction: row;
-  height: calc(100vh - 16px);
   width: 100%;
   align-items: center;
   justify-content: center;
