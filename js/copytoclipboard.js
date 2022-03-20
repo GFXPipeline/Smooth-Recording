@@ -1,39 +1,28 @@
 // functionality to copy text to clipboard
 
 // trigger copy event on click
-$('#copy').on('click', function(event) {
-  console.log(event);
-  copyToClipboard(event);
-});
+function copyToClipboard(elementId) {
 
-// event handler
-function copyToClipboard(e) {
-  // alert('this function was triggered');
-  // find target element
-  var
-    t = e.target, 
-    c = t.dataset.copytarget,
-    inp = (c ? document.querySelector(c) : null);
-  console.log(inp);
-  // check if input element exist and if it's selectable
-  if (inp && inp.select) {
-    // select text
-    inp.select();
-    try {
-      // copy text
-      document.execCommand('copy');
-      inp.blur();
+  // Create an auxiliary hidden input
+  var aux = document.createElement("input");
 
-      // copied animation
-      t.classList.add('copied');
-      setTimeout(function() {
-        t.classList.remove('copied');
-      }, 1500);
-    } catch (err) {
-      //fallback in case exexCommand doesnt work
-      alert('please press Ctrl/Cmd+C to copy');
-    }
+  // Get the text from the element passed into the input
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
 
-  }
+  // Append the aux input to the body
+  document.body.appendChild(aux);
 
+  // Highlight the content
+  aux.select();
+
+  // Execute the copy command
+  document.execCommand("copy");
+
+  // Remove the input from the body
+  document.body.removeChild(aux);
+
+}
+
+function log(){
+	console.log('---')
 }
